@@ -1,0 +1,95 @@
+{
+  "refactor-function": {
+    "description": "Refactor a function to improve readability",
+    "prompt": "Refactor the code using native language methods and a declarative approach to improve readability",
+    "context": {
+      "codebase": true,
+      "selection": true,
+      "currentFile": true
+    }
+  },
+  "document-important-lines": {
+    "description": "Add inline comments to the important lines of code",
+    "prompt": "Add inline comments to the important lines of code. Provide a brief explanation of the code and any important variables or functions.",
+    "context": {
+      "codebase": true,
+      "selection": true,
+      "currentFile": true
+    }
+  },
+  "convert-react-to-vue": {
+    "description": "Convert react component to vue component",
+    "prompt": "Convert the react component to a vue component. Maintain functionality and provide documentation on the conversion. Make sure to insert documentation for any functions or hard to understand areas.",
+    "context": {
+      "codebase": true,
+      "selection": true,
+      "currentFile": true
+    }
+  },
+  "explain-current-directory": {
+    "description": "Explain the current directory",
+    "prompt": "Explain the current directory in simple terms. Provide a brief overview of the files and directories in the current directory, including their purpose and any relevant details. Use markdown formatting for headings, code blocks, lists, etc.",
+    "context": {
+      "selection": false,
+      "currentDir": false
+    },
+    "mode": "ask"
+  },
+  "commit-message": {
+    "description": "Commit message for current changes",
+    "prompt": "Suggest an informative commit message by summarizing code changes from the shared command output. The commit message should follow the conventional commit format and provide meaningful context for future readers. Give the message in english. Use markdown formatting for headings, code blocks, lists, etc.",
+    "context": {
+      "selection": false,
+      "command": "git diff --cached"
+    }
+  },
+  "compare-tabs": {
+    "description": "Compare files in opened tabs",
+    "prompt": "Examine the shared code snippets from my opened tabs. Then explain the relationship between the code samples by answering these questions: 1. What are the main tasks or functions the code is performing? 2. Are there any similarities in functions or logic across the samples? 3. Does one code snippet call or import another? If so, how do they interact? 4. Are there any notable differences in how they approach similar problems? 5. Overall, how are the code snippets related - do they work together as part of a larger program, solve variants of the same problem, or serve entirely different purposes?. Use markdown formatting for headings, code blocks, lists, etc.",
+    "context": {
+      "openTabs": true,
+      "selection": false
+    }
+  },
+  "readme": {
+    "description": "Readme for current dir",
+    "prompt": "Write a detailed README.md file to document the code located in the same directory as my current selection. Summarize what the code in this directory is meant to accomplish. Explain the key files, functions, classes, and features. Use Markdown formatting for headings, code blocks, lists, etc. to make the it organized and readable. Aim for a beginner-friendly explanation that gives a developer unfamiliar with the code a good starting point to understand it. Make sure to include: - Overview of directory purpose - Functionality explanations - Relevant diagrams or visuals if helpful. Write the README content clearly and concisely using complete sentences and paragraphs based on the shared context. Use proper spelling, grammar, and punctuation throughout. Surround your full README text with triple backticks so it renders properly as a code block. Do not make assumptions or fabricating additional details.",
+    "context": {
+      "currentDir": true,
+      "selection": true
+    }
+  },
+  "recent-git-changes": {
+    "description": "Summarize recent changes",
+    "prompt": "Summarize the given git changes in 3-5 sentences. Include the commit message, author, and date. Use markdown formatting for headings, code blocks, lists, etc. to make the it organized and readable. Aim for a beginner-friendly explanation that gives a developer unfamiliar with the code a good starting point to understand it. Make sure to include: - Overview of directory purpose - Functionality explanations - Relevant diagrams or visuals if helpful. Use proper spelling, grammar, and punctuation throughout.",
+    "context": {
+      "command": "git log -10 --pretty=format:'%h - %an: %s' --stat",
+      "selection": false
+    }
+  },
+  "latest-cody-release": {
+    "description": "Summarize latest Cody release",
+    "prompt": "What is the latest stable version of Cody? Briefly summarize the changes that were included in that release based on this CHANGELOG excerpt. Use markdown formatting for headings, code blocks, lists, etc.",
+    "context": {
+      "selection": false,
+      "command": "curl https://raw.githubusercontent.com/sourcegraph/cody/main/vscode/CHANGELOG.md | head -n 50"
+    }
+  },
+  "local-repository-overview": {
+    "description": "Local repository key questions",
+    "prompt": "Given the following repo, suggest me key questions to understand the codebase easily. Go from general to specific questions",
+    "context": {
+      "currentDir": true,
+      "selection": false
+    },
+    "mode": "ask"
+  },
+  "repository-analysis": {
+    "description": "Repository answers based on the `repository-overview` prompt",
+    "prompt": "Given the previous questions, answer them. Use markdown formatting for headings, code blocks, lists, etc.",
+    "context": {
+      "currentDir": true,
+      "selection": false
+    }
+  }
+}
