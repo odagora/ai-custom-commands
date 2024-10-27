@@ -108,5 +108,14 @@
       "selection": true,
       "currentDir": true
     }
+  },
+  "create-gitignore-file": {
+    "description": "Create a .gitignore file",
+    "prompt": "Create a .gitignore file based on the current directory’s contents, ignoring any files or folders that are usually not tracked in a Git repository, such as node_modules, logs, build directories, and other automatically generated files. Make sure the .gitignore applies specifically to files and folders relevant to the types of files I have in this project directory.",
+    "context": {
+      "currentDir": true,
+      "selection": false,
+      "codebase": true
+    }
   }
 }
